@@ -31,7 +31,7 @@ time.sleep(3)
 py.click(x=621, y=252)
 py.click(x=621, y=252)
 
-
+#not on github
 
 
 
