@@ -16,6 +16,8 @@ chrome_options = Options()
 
 # Open in Incognito
 chrome_options.add_argument("--incognito")
+chrome_options.add_argument("--force-dark-mode")
+chrome_options.add_argument("--enable-features=WebUIDarkMode")
 
 chrome_options.add_experimental_option("detach", True)
 
