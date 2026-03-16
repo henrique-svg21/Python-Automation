@@ -79,10 +79,8 @@ Com as bibliotecas instaladas e o arquivo `Credentials.py` configurado, você es
 
 Abra o seu terminal na pasta do projeto e execute o script principal (substitua `nome_do_arquivo.py` pelo nome real do seu script):
 
-    ```bash
     python nome_do_arquivo.py
-    ```
-
+    
 **O que vai acontecer:**
 1. Um pop-up aparecerá confirmando em quantos segundos o seu PC será desligado.
 2. O Google Chrome abrirá sozinho no modo anônimo.
