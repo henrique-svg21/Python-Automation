@@ -31,5 +31,5 @@ time.sleep(1)
 py.hotkey('alt', 'f4')
 
 # aviso de confirmacao
-py.alert(text=f'PC agendado para desligar às 14:25 (em {segundos_faltantes} segundos).', title='Agendamento Concluído')
+py.alert(text=f'PC agendado para desligar às 14:28 (em {segundos_faltantes} segundos).', title='Agendamento Concluído')
 
