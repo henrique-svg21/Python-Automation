@@ -3,7 +3,7 @@ import time
 from datetime import datetime, timedelta
 
 agora = datetime.now()
-alvo = agora.replace(hour=14, minute=25, second=0, microsecond=0)
+alvo = agora.replace(hour=14, minute=28, second=0, microsecond=0)
 
 if agora > alvo:
     alvo += timedelta(days=1)
