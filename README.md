@@ -1,31 +1,31 @@
-# 🚀 Automação de Rotina Diária e Agendamento
+# 🚀 Daily Routine Automation & Scheduling
 
-Este projeto é um script em Python desenvolvido para automatizar o início da rotina de trabalho e estudos. Ele une automação web (para abrir abas e fazer login em múltiplas plataformas essenciais) e comandos de sistema (para agendar o desligamento automático do computador).
+This project is a Python script developed to automate the start of the work and study routine. It combines web automation (to open tabs and log into essential platforms) and system commands (to schedule an automatic computer shutdown).
 
-O objetivo é economizar tempo todos os dias, executando tarefas repetitivas com um único clique!
-
----
-
-## 🛠️ Funcionalidades
-
-1.  **Agendamento Automático de Desligamento:** Calcula o tempo exato e agenda o desligamento silencioso do PC para um horário específico (ex: 14h28). Inclui um alerta visual na tela confirmando o agendamento.
-2.  **Abertura Limpa do Navegador:** Inicia o Google Chrome no modo anônimo e escuro (Dark Mode), ignorando banners de automação para evitar detecções.
-3.  **Logins Sequenciais Automatizados:**
-    * **Google / Gmail:** Preenche e-mail e senha e acessa a caixa de entrada.
-    * **Google Gemini:** Abre em uma nova aba e aguarda o carregamento.
-    * **GitHub:** Navega até a página de login, insere as credenciais e acessa a dashboard principal.
-    * **Portal do Estudante SENAI:** Abre a página do aluno para login (Aviso: O preenchimento automático desta página está em desenvolvimento ainda).
-4.  **Aba Final de Pesquisa:** Deixa uma aba extra aberta no Google, pronta para começar o trabalho.
+The goal is to save time every day by executing repetitive tasks with a single click!
 
 ---
 
-## 💻 Pré-requisitos e Instalação
+## 🛠️ Features
 
-Para rodar este projeto na sua máquina, você precisará ter o **Python** e o **Google Chrome** instalados.
+1.  **Automatic Shutdown Scheduling:** Calculates the exact time and schedules a silent PC shutdown for a specific time (e.g., 14:28). Includes a visual pop-up alert on the screen confirming the schedule.
+2.  **Clean Browser Launch:** Opens Google Chrome in Incognito and Dark Mode, bypassing basic automation banners to avoid detection.
+3.  **Automated Sequential Logins:**
+    * **Google / Gmail:** Fills in email and password and accesses the inbox.
+    * **Google Gemini:** Opens in a new tab and waits for it to load.
+    * **GitHub:** Navigates to the login page, inserts credentials, and accesses the main dashboard.
+    * **SENAI Student Portal:** Opens the student portal login page (Note: Auto-filling this specific page is currently under development due to Flutter framework restrictions).
+4.  **Final Search Tab:** Leaves an extra blank Google tab open, ready to start working.
 
-1. Baixe ou clone este projeto para o seu computador.
-2. Abra o terminal (ou prompt de comando) na pasta do projeto.
-3. Instale as bibliotecas necessárias executando o comando abaixo:
+---
+
+## 💻 Prerequisites and Installation
+
+To run this project on your machine, you will need **Python** and **Google Chrome** installed.
+
+1. Download or clone this project to your computer.
+2. Open the terminal (or command prompt) in the project folder.
+3. Install the necessary libraries by running the following command:
 
     ```bash
     pip install selenium webdriver-manager pyautogui
@@ -33,56 +33,58 @@ Para rodar este projeto na sua máquina, você precisará ter o **Python** e o *
 
 ---
 
-## 🔐 Tutorial: Configurando suas Credenciais (IMPORTANTE)
+## 🔐 Tutorial: Configuring your Credentials (IMPORTANT)
 
-Para que o robô consiga fazer os logins por você, ele precisa saber os seus e-mails e senhas. No entanto, **NUNCA devemos colocar senhas diretamente no código principal (`main.py`)**. 
+For the robot to log in for you, it needs to know your emails and passwords. However, **we must NEVER put passwords directly in the main code (`main.py`)**. 
 
-Para manter suas contas seguras, usamos um arquivo separado chamado `Credentials.py`. Siga o passo a passo abaixo para configurá-lo:
+To keep your accounts secure, we use a separate file called `Credentials.py`. Follow the step-by-step guide below to configure it:
 
-### Passo 1: Criar o arquivo
-Na mesma pasta onde está o seu script principal de automação, crie um novo arquivo de texto e nomeie-o exatamente como: `Credentials.py`
+### Step 1: Create the file
+In the same folder where your main automation script is located, create a new text file and name it exactly: `Credentials.py`
 
-### Passo 2: Copiar o modelo
-Abra o arquivo `Credentials.py` que você acabou de criar e cole o código abaixo dentro dele:
+### Step 2: Copy the template
+Open the `Credentials.py` file you just created and paste the code below into it:
 
     ```python
-    # Credenciais do Google
-    email = "SEU_EMAIL_AQUI@gmail.com"
-    password = "SUA_SENHA_DO_GOOGLE_AQUI"
+    # Google Credentials
+    email = "YOUR_EMAIL_HERE@gmail.com"
+    password = "YOUR_GOOGLE_PASSWORD_HERE"
 
-    # Credenciais do GitHub
-    github_email = "SEU_USUARIO_OU_EMAIL_DO_GITHUB"
-    github_password = "SUA_SENHA_DO_GITHUB_AQUI"
+    # GitHub Credentials
+    github_email = "YOUR_GITHUB_USER_OR_EMAIL"
+    github_password = "YOUR_GITHUB_PASSWORD_HERE"
 
-    # Credenciais do SENAI
-    senai_user = "SEU_CPF_OU_EMAIL_AQUI"
-    senai_password = "SUA_SENHA_DO_SENAI_AQUI"
+    # SENAI Credentials
+    senai_user = "YOUR_CPF_OR_EMAIL_HERE"
+    senai_password = "YOUR_SENAI_PASSWORD_HERE"
     ```
 
-### Passo 3: Preencher com seus dados reais
-Substitua os textos genéricos (como `"SEU_EMAIL_AQUI@gmail.com"`) pelos seus dados verdadeiros. 
-**Atenção:** Mantenha as aspas duplas (`" "`) ao redor dos seus e-mails e senhas!
+### Step 3: Fill with your real data
+Replace the generic texts (like `"YOUR_EMAIL_HERE@gmail.com"`) with your real data. 
+**Attention:** Keep the double quotes (`" "`) around your emails and passwords!
 
-### Passo 4: Proteja o arquivo (Aviso sobre o GitHub)
-Se você for subir este projeto para o GitHub ou qualquer outro controle de versão, **você deve ignorar o arquivo de credenciais**. 
-Crie um arquivo chamado `.gitignore` na mesma pasta e escreva dentro dele apenas:
+### Step 4: Protect the file (GitHub Warning)
+If you are going to upload this project to GitHub or any other version control system, **you must ignore the credentials file**. 
+Create a file called `.gitignore` in the same folder and write only this inside it:
     
     Credentials.py
 
-Isso garante que o GitHub ignore o arquivo com as suas senhas e suba apenas o código do robô.
+This ensures GitHub ignores your password file and only uploads the robot's code.
 
 ---
 
-## ▶️ Como Executar o Projeto
+## ▶️ How to Run the Project
 
-Com as bibliotecas instaladas e o arquivo `Credentials.py` configurado, você está pronto para rodar!
+With the libraries installed and the `Credentials.py` file configured, you are ready to go!
 
-Abra o seu terminal na pasta do projeto e execute o script principal (substitua `nome_do_arquivo.py` pelo nome real do seu script):
+Open your terminal in the project folder and run the main script (replace `your_file_name.py` with the actual name of your script):
 
-    python nome_do_arquivo.py
-    
-**O que vai acontecer:**
-1. Um pop-up aparecerá confirmando em quantos segundos o seu PC será desligado.
-2. O Google Chrome abrirá sozinho no modo anônimo.
-3. Não mexa no mouse ou teclado enquanto o robô estiver trabalhando.
-4. Ao final, você terá todas as suas abas logadas e prontas para o uso!
+    ```bash
+    python your_file_name.py
+    ```
+
+**What will happen:**
+1. A pop-up will appear confirming in how many seconds your PC will shut down.
+2. Google Chrome will open by itself in incognito mode.
+3. Do not move your mouse or keyboard while the robot is working.
+4. At the end, you will have all your tabs logged in and ready to use!
