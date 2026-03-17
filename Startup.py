@@ -150,10 +150,7 @@ def open_and_log_in():
     
     except Exception as e:
         print("Failed to log into AVA SESI SENAI:", e)
-        # === DEBUG HELPER ===
-        browser.save_screenshot("ava_login_error.png")
-        print("Screenshot saved as 'ava_login_error.png' – open it to verify the exact page state.")
-
+        
     # ==========================================
     # 5. FINAL GOOGLE TAB (Tab 5 - Index 4)
     # ==========================================
