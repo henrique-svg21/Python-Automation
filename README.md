@@ -14,7 +14,7 @@ The goal is to save time every day by executing repetitive tasks with a single c
     * **Google / Gmail:** Fills in email and password and accesses the inbox.
     * **Google Gemini:** Opens in a new tab and waits for it to load.
     * **GitHub:** Navigates to the login page, inserts credentials, and accesses the main dashboard.
-    * **SENAI Student Portal:** Opens the student portal login page (Note: Auto-filling this specific page is currently under development due to Flutter framework restrictions).
+    * **AVA SESI SENAI:** Opens the AVA login page, inserts credentials, opens main dashboard.
 4.  **Final Search Tab:** Leaves an extra blank Google tab open, ready to start working.
 
 ---
@@ -55,7 +55,7 @@ Open the `Credentials.py` file you just created and paste the code below into it
     github_password = "YOUR_GITHUB_PASSWORD_HERE"
 
     # SENAI Credentials
-    senai_user = "YOUR_CPF_OR_EMAIL_HERE"
+    senai_user = "YOUR_SENAI_USERNAME_HERE"
     senai_password = "YOUR_SENAI_PASSWORD_HERE"
     ```
 
@@ -87,4 +87,4 @@ Open your terminal in the project folder and run the main script (replace `your_
 1. A pop-up will appear confirming in how many seconds your PC will shut down.
 2. Google Chrome will open by itself in incognito mode.
 3. Do not move your mouse or keyboard while the robot is working.
-4. At the end, you will have all your tabs logged in and ready to use!
+4. In about a minute, you will have all your tabs logged in and ready to use!

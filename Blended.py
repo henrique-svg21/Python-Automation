@@ -46,6 +46,7 @@ def open_and_log_in():
     chrome_options.add_argument("--incognito")
     chrome_options.add_argument("--force-dark-mode")
     chrome_options.add_argument("--enable-features=WebUIDarkMode")
+    chrome_options.add_argument("--start-maximized")
     chrome_options.add_experimental_option("detach", True)
 
     # Hide basic automation banners
@@ -116,31 +117,43 @@ def open_and_log_in():
         print("GitHub Login might have failed. Check the browser.", e)
 
     # ==========================================
-    # 4. SENAI ESPAÇO DO ESTUDANTE (Tab 4 - Index 3)
+    # 4. AVA SESI SENAI (Tab 4 - Index 3)
     # ==========================================
     browser.execute_script("window.open('');")
     browser.switch_to.window(browser.window_handles[3])
-    browser.get("https://estudante.sesisenai.org.br/login")
-    print("Navigated to Espaço do Estudante SENAI...")
+    browser.get("https://ava.sesisenai.org.br/login/index.php")
+    print("Navigated to AVA SESI SENAI login page...")
 
     try:
-        # 1. Wait for the PRESENCE of the hidden Flutter input box using the ID you found
-        senai_user_input = WebDriverWait(browser, 15).until(
-            EC.presence_of_element_located((By.ID, "username"))
+        # Username field (standard Moodle ID)
+        ava_user_input = WebDriverWait(browser, 15).until(
+        EC.visibility_of_element_located((By.ID, "username"))
         )
-        
-        # 2. Use JavaScript to forcefully focus on this hidden element
-        browser.execute_script("arguments[0].focus();", senai_user_input)
-        time.sleep(0.5) 
-        
-        # 3. Type the user, TAB to the password, and hit ENTER
-        senai_user_input.send_keys(Credentials.senai_user + Keys.TAB + Credentials.senai_password + Keys.ENTER)
-        
-        print("Sent SENAI credentials!")
-        time.sleep(5) # Buffer to let the dashboard load
-        
+        ava_user_input.clear()
+        ava_user_input.send_keys(Credentials.senai_user)
+    
+        # Password field
+        ava_pass_input = WebDriverWait(browser, 10).until(
+            EC.visibility_of_element_located((By.ID, "password"))
+        )
+        ava_pass_input.clear()
+        ava_pass_input.send_keys(Credentials.senai_password)
+    
+        # Click the login button (reliable for Brazilian Moodle instances)
+        login_button = WebDriverWait(browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Entrar') or @id='loginbtn']"))
+        )
+        login_button.click()
+    
+        print("AVA SESI SENAI credentials sent and login button clicked successfully!")
+        time.sleep(7)  # Allow dashboard and any policy screen to load
+    
     except Exception as e:
-        print("Failed to interact with the hidden SENAI login fields.", e)
+        print("Failed to log into AVA SESI SENAI:", e)
+        # === DEBUG HELPER ===
+        browser.save_screenshot("ava_login_error.png")
+        print("Screenshot saved as 'ava_login_error.png' – open it to verify the exact page state.")
+
     # ==========================================
     # 5. FINAL GOOGLE TAB (Tab 5 - Index 4)
     # ==========================================
