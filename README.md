@@ -8,7 +8,7 @@ The goal is to save time every day by executing repetitive tasks with a single c
 
 ## 🛠️ Features
 
-1.  **Automatic Shutdown Scheduling:** Calculates the exact time and schedules a silent PC shutdown for a specific time (e.g., 14:28). Includes a visual pop-up alert on the screen confirming the schedule.
+1.  **Automatic Shutdown Scheduling:** Calculates the exact time and schedules a silent PC shutdown for a specific time (e.g., 14:28). Includes a visual pop-up alert on the screen confirming the schedule. Plus, the shutdown time can be customized as wished.
 2.  **Clean Browser Launch:** Opens Google Chrome in Incognito and Dark Mode, bypassing basic automation banners to avoid detection.
 3.  **Automated Sequential Logins:**
     * **Google / Gmail:** Fills in email and password and accesses the inbox.
@@ -77,10 +77,10 @@ This ensures GitHub ignores your password file and only uploads the robot's code
 
 With the libraries installed and the `Credentials.py` file configured, you are ready to go!
 
-Open your terminal in the project folder and run the main script (replace `your_file_name.py` with the actual name of your script):
+Open your terminal in the project folder and run the main script (replace `Startup.py` with the actual name of your script, in case you have changed it):
 
     ```bash
-    python your_file_name.py
+    python Startup.py
     ```
 
 **What will happen:**
