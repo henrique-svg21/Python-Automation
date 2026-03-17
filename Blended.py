@@ -18,24 +18,24 @@ import Credentials
 
 def schedule_shutdown():
     """Calculates the time until 14:28 and schedules a system shutdown."""
-    agora = datetime.now()
-    alvo = agora.replace(hour=14, minute=28, second=0, microsecond=0)
+    now = datetime.now()
+    target = now.replace(hour=14, minute=28, second=0, microsecond=0)
 
     # If it's already past 14:28 today, schedule for tomorrow
-    if agora > alvo:
-        alvo += timedelta(days=1)
+    if now > target:
+        target += timedelta(days=1)
 
-    segundos_faltantes = int((alvo - agora).total_seconds())
+    remain_seconds = int((target - now).total_seconds())
 
-    print(f"Agora são: {agora.strftime('%H:%M:%S')}")
-    print(f"Desligamento agendado para: {alvo.strftime('%d/%m %H:%M:%S')}")
-    print(f"Segundos até lá: {segundos_faltantes}")
+    print(f"Now it is: {now.strftime('%H:%M:%S')}")
+    print(f"Shutdown scheduled to: {target.strftime('%d/%m %H:%M:%S')}")
+    print(f"Seconds remaining: {remain_seconds}")
 
     # Directly execute the shutdown command in the background
-    os.system(f'shutdown /s /t {segundos_faltantes}')
+    os.system(f'shutdown /s /t {remain_seconds}')
 
     # Confirmation alert
-    py.alert(text=f'PC agendado para desligar às 14:28 (em {segundos_faltantes} segundos).', title='Agendamento Concluído')
+    py.alert(text=f'Shutdown scheduled to 14:28 (in {remain_seconds} seconds).', title='SCHEDULE DONE')
 
 
 def open_and_log_in():
